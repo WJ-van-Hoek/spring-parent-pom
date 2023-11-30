@@ -1,0 +1,22 @@
+version: 2.1
+setup: true
+orbs:
+  continuation: circleci/continuation@1.0.0
+jobs:
+  generate-config:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Make sure generate-pipeline-config.bash is executable
+          command: chmod +x .circleci/bash-generate-pipeline-config.bash
+      - run:
+          name: Generate Pipeline generated_config.yml file
+          command: bash .circleci/bash-generate-pipeline-config.bash
+      - continuation/continue:
+          configuration_path: .circleci/generated_config.yml
+workflows:
+  setup-workflow:
+    jobs:
+      - generate-config

@@ -1,0 +1,13 @@
+release:
+    jobs:
+      - package-maven:
+          filters:
+            branches:
+              only:
+                - master
+      - increment-version:
+          requires:
+            - package-maven
+      - deploy-maven:
+          requires:
+            - increment-version
