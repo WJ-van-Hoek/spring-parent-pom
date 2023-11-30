@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CURRENT_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+CURRENT_VERSION=$(mvn --settings .circleci/settings.xml help:evaluate -Dexpression=project.version -q -DforceStdout)
 NEXT_VERSION=$(echo "${CURRENT_VERSION}" | awk -F'.' '{print $1"."$2"."$3 + 1}')
 mvn --settings .circleci/settings.xml versions:set -DnewVersion="${NEXT_VERSION}"
 
