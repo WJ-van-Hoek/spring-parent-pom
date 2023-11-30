@@ -7,4 +7,4 @@ package-maven:
 
         - run:
             name: clean and package
-            command: mvn clean package
+            command: mvn --settings .circleci/settings.xml clean package
