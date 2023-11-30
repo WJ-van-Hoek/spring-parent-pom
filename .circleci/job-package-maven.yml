@@ -1,0 +1,10 @@
+package-maven:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /spring-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: clean and package
+            command: mvn --settings .circleci/settings.xml clean package
