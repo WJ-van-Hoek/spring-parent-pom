@@ -5,5 +5,6 @@ POM for all my personal Spring Project repositories
 # Release Notes
 |Release version|Date|Size|Category|Content|
 |--|--|--|--|--|
+|0.0.3|2023-12-01|minor|bug|set groupId|
 |0.0.2|2023-12-01|minor|technical|initiate POM|
 |0.0.1|2023-11-30|minor|technical|setup the pipeline|
