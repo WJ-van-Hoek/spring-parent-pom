@@ -31,7 +31,7 @@
 	<repositories>
 		<repository>
 			<id>github-parent-pom</id>
-			<url>https://maven.pkg.github.com/WJ-van-Hoek/parent-pom</url>
+			<url>https://maven.pkg.github.com/WJ-van-Hoek/parent-po7m</url>
 		</repository>
 	</repositories>
 
@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>com.general</groupId>
 			<artifactId>parent-pom</artifactId>
-			<version>0.0.7</version>
+			<version>0.1.6</version>
 			<type>pom</type>
 		</dependency>
 	</dependencies>
