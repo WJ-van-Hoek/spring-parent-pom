@@ -31,7 +31,7 @@
 	<repositories>
 		<repository>
 			<id>github-parent-pom</id>
-			<url>https://maven.pkg.github.com/WJ-van-Hoek/parent-po7m</url>
+			<url>https://maven.pkg.github.com/WJ-van-Hoek/parent-pom</url>
 		</repository>
 	</repositories>
 
