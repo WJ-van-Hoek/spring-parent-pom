@@ -1,22 +1,84 @@
 version: 2.1
-setup: true
-orbs:
-  continuation: circleci/continuation@1.0.0
+
+parameters:
+  update-parent:
+    default: false
+    type: boolean
+
 jobs:
-  generate-config:
+  package-maven:
     docker:
-      - image: cimg/base:stable
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /spring-parent-pom
     steps:
-      - checkout
-      - run:
-          name: Make sure generate-pipeline-config.bash is executable
-          command: chmod +x .circleci/bash-generate-pipeline-config.bash
-      - run:
-          name: Generate Pipeline generated_config.yml file
-          command: bash .circleci/bash-generate-pipeline-config.bash
-      - continuation/continue:
-          configuration_path: .circleci/generated_config.yml
+        - checkout
+
+        - run:
+            name: clean and package
+            command: mvn clean package
+
+  deploy-maven:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /spring-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: deploy
+            command: bash .circleci/bash-deploy.bash
+
+  increment-version:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /spring-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: increment
+            command: bash .circleci/bash-increment-version.bash
+  
+  update-parent:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /spring-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: update-parent
+            command: bash .circleci/bash-update-parent.bash
+
 workflows:
-  setup-workflow:
+  version: 2
+  package:
+    when:
+      not: << pipeline.parameters.update-parent >>
     jobs:
-      - generate-config
+      - package-maven:
+          filters:
+            branches:
+              ignore:
+                - master
+
+  release:
+    when:
+      not: << pipeline.parameters.update-parent >>
+    jobs:
+      - package-maven:
+          filters:
+            branches:
+              only:
+                - master
+      - increment-version:
+          requires:
+            - package-maven
+      - deploy-maven:
+          requires:
+            - increment-version
+  
+  update-parent:
+    when: << pipeline.parameters.update-parent >>
+    jobs:
+      - update-parent
