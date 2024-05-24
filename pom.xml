@@ -10,7 +10,7 @@
 
 	<groupId>com.general</groupId>
 	<artifactId>spring-parent-pom</artifactId>
-	<version>0.0.9</version>
+	<version>0.1.0</version>
 	<name>spring-parent-pom</name>
 	<description>All Spring dependencies are managed here</description>
 
