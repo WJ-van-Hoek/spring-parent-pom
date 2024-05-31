@@ -5,11 +5,6 @@
 
   <servers>
     <server>
-      <id>github-parent-pom</id>
-	  <username>WJ-van-Hoek</username>
-      <password>${_READ_PACKAGE}</password>
-    </server>
-    <server>
       <id>github-spring-parent-pom-deploy-package</id>
 	  <username>WJ-van-Hoek</username>
       <password>${_WRITE_PACKAGE}</password>

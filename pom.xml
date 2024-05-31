@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.3.0</version>
 	</parent>
 
 	<groupId>com.general</groupId>
 	<artifactId>spring-parent-pom</artifactId>
-	<version>0.0.8</version>
+	<version>0.1.0</version>
 	<name>spring-parent-pom</name>
 	<description>All Spring dependencies are managed here</description>
 
@@ -33,7 +33,7 @@
 			<id>central</id>
 			<name>Central Repository</name>
 			<url>https://repo.maven.apache.org/maven2</url>
-		</repository>		
+		</repository>
 		<repository>
 			<id>github-parent-pom</id>
 			<url>https://maven.pkg.github.com/WJ-van-Hoek/parent-pom</url>
