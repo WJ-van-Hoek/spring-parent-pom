@@ -4,6 +4,9 @@ parameters:
   update-parent:
     default: false
     type: boolean
+  update-properties:
+    default: false
+    type: boolean    
 
 jobs:
   package-maven:
@@ -49,12 +52,26 @@ jobs:
         - run:
             name: update-parent
             command: bash .circleci/bash-update-parent.bash
+            
+  update-properties:
+    docker:
+        - image: maven:3.8.4-openjdk-17
+    working_directory: /spring-parent-pom
+    steps:
+        - checkout
+
+        - run:
+            name: update-properties
+            command: bash .circleci/bash-update-properties.bash            
 
 workflows:
   version: 2
   package:
     when:
-      not: << pipeline.parameters.update-parent >>
+      not:
+        or:
+          - << pipeline.parameters.update-parent >>
+          - << pipeline.parameters.update-properties >> 
     jobs:
       - package-maven:
           filters:
@@ -64,7 +81,10 @@ workflows:
 
   release:
     when:
-      not: << pipeline.parameters.update-parent >>
+      not:
+        or:
+          - << pipeline.parameters.update-parent >>
+          - << pipeline.parameters.update-properties >> 
     jobs:
       - package-maven:
           filters:
@@ -82,3 +102,8 @@ workflows:
     when: << pipeline.parameters.update-parent >>
     jobs:
       - update-parent
+      
+  update-properties:
+    when: << pipeline.parameters.update-properties >>
+    jobs:
+      - update-properties      
