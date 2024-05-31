@@ -16,6 +16,10 @@
 
 	<packaging>pom</packaging>
 
+	<properties>
+		<parent-pom.version>0.2.2</parent-pom.version>
+	</properties>
+
 	<distributionManagement>
 		<repository>
 			<id>github-spring-parent-pom-deploy-package</id>
@@ -31,7 +35,6 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<name>Central Repository</name>
 			<url>https://repo.maven.apache.org/maven2</url>
 		</repository>
 		<repository>
@@ -64,7 +67,7 @@
 		<dependency>
 			<groupId>com.general</groupId>
 			<artifactId>parent-pom</artifactId>
-			<version>0.1.6</version>
+			<version>${parent-pom.version}</version>
 			<type>pom</type>
 		</dependency>
 	</dependencies>
