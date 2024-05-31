@@ -30,6 +30,11 @@
 
 	<repositories>
 		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>		
+		<repository>
 			<id>github-parent-pom</id>
 			<url>https://maven.pkg.github.com/WJ-van-Hoek/parent-pom</url>
 		</repository>
