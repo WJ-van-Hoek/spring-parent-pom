@@ -101,13 +101,13 @@ workflows:
   update-parent:
     when: << pipeline.parameters.update-parent >>
     jobs:
-      - update-parent
+      - update-parent:
           context:
               - update-dependencies-context
       
   update-properties:
     when: << pipeline.parameters.update-properties >>
     jobs:
-      - update-properties  
+      - update-properties:
           context:
               - update-dependencies-context
