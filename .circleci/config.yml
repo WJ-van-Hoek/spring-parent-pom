@@ -97,6 +97,8 @@ workflows:
       - deploy-maven:
           requires:
             - increment-version
+          context:
+              - deploy-context
   
   update-parent:
     when: << pipeline.parameters.update-parent >>
