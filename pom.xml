@@ -16,10 +16,6 @@
 
 	<packaging>pom</packaging>
 
-	<properties>
-		<parent-pom.version>0.2.2</parent-pom.version>
-	</properties>
-
 	<distributionManagement>
 		<repository>
 			<id>github-spring-parent-pom-deploy-package</id>
@@ -36,10 +32,6 @@
 		<repository>
 			<id>central</id>
 			<url>https://repo.maven.apache.org/maven2</url>
-		</repository>
-		<repository>
-			<id>github-parent-pom</id>
-			<url>https://maven.pkg.github.com/WJ-van-Hoek/parent-pom</url>
 		</repository>
 	</repositories>
 
@@ -63,12 +55,9 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>com.general</groupId>
-			<artifactId>parent-pom</artifactId>
-			<version>${parent-pom.version}</version>
-			<type>pom</type>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
 
