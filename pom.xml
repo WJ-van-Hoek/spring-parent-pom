@@ -18,9 +18,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>github-spring-parent-pom-deploy-package</id>
-			<name>GitHub OWNER Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/WJ-van-Hoek/spring-parent-pom/</url>
+			<id>github-spring-parent-pom</id>
+			<url>https://maven.pkg.github.com/WJ-van-Hoek/spring-parent-pom</url>
 		</repository>
 		<site>
 			<id>spring-parent-pom-site-id</id>
@@ -29,6 +28,10 @@
 	</distributionManagement>
 
 	<repositories>
+    	<repository>
+        	<id>github-spring-parent-pom</id>
+        	<url>https://maven.pkg.github.com/WJ-van-Hoek/spring-parent-pom</url>
+    	</repository>		
 		<repository>
 			<id>central</id>
 			<url>https://repo.maven.apache.org/maven2</url>
