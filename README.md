@@ -5,6 +5,7 @@ POM for all my personal Spring Project repositories
 # Release Notes
 |Release version|Date|Size|Category|Content|
 |--|--|--|--|--|
+|0.1.5  |2024-08-24  |minor|technical|update parent |
 |0.1.5  |2024-07-20  |minor|technical|fix deployment bug |
 |0.1.4  |2024-07-20  |minor|technical|add spring-boot-starter-web |
 |0.1.3  |2024-07-19  |minor|technical|update parent |
