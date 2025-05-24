@@ -5,6 +5,7 @@ POM for all my personal Spring Project repositories
 # Release Notes
 |Release version|Date|Size|Category|Content|
 |--|--|--|--|--|
+|0.1.14  |2025-05-24  |minor|technical|update parent |
 |0.1.13  |2025-05-05  |minor|technical|update parent |
 |0.1.12  |2025-03-23  |minor|technical|update parent |
 |0.1.11  |2025-03-01  |minor|technical|update parent |
